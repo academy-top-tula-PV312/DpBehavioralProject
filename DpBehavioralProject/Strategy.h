@@ -15,7 +15,7 @@ class Vector
 	std::vector<int> v;
 	IStrategy* sortStrategy;
 public:
-	Vector(int size) :/ sortStrategy{ nullptr }
+	Vector(int size) : sortStrategy{ nullptr }
 	{
 		v.resize(size);
 	}

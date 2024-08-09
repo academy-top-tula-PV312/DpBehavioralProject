@@ -5,6 +5,9 @@
 #include "ChainOfResponsibility.h"
 #include "Command.h"
 #include "Mediator.h"
+#include "Memento.h"
+#include "Observer.h"
+#include "State.h"
 
 
 class Examples
@@ -112,6 +115,64 @@ public:
         customer->Send("Order! I need application!");
         developer->Send("Program is ready!");
         tester->Send("Application is tested and ready");
+    }
+
+    static void Memento()
+    {
+        Player* player = new Player();
+        GameHistory* history = new GameHistory();
+
+        player->Play();
+        player->Play();
+
+        history->Add(player->Save());
+
+        player->Play();
+        player->Play();
+
+        history->Add(player->Save());
+
+        player->Play();
+        player->Play();
+
+        player->Load(history->Remove());
+
+        player->Play();
+        player->Play();
+
+        player->Load(history->Remove());
+
+        player->Play();
+        player->Play();
+    }
+
+    static void Observer()
+    {
+        Market* market = new Market();
+        Bank* sber = new Bank("Sber", market);
+        Broker* bobby = new Broker("Bobby", market);
+
+        Bank* alfa = new Bank("Alfa");
+        market->AddObserver(alfa);
+
+        market->Bidding();
+        std::cout << "\n";
+
+        sber->StopWork();
+
+        market->Bidding();
+        std::cout << "\n";
+    }
+
+    static void State()
+    {
+        Water* water = new Water(new LiquidState());
+
+        water->Frost();
+        water->Frost();
+        water->Heat();
+        water->Heat();
+        water->Heat();
     }
 };
 

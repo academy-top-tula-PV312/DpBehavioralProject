@@ -135,7 +135,11 @@
     <ClInclude Include="Examples.h" />
     <ClInclude Include="Iterator.h" />
     <ClInclude Include="Mediator.h" />
+    <ClInclude Include="Memento.h" />
+    <ClInclude Include="Observer.h" />
+    <ClInclude Include="State.h" />
     <ClInclude Include="Strategy.h" />
+    <ClInclude Include="TemplateMethod.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
